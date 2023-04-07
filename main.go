@@ -6,14 +6,16 @@ import (
 
 	"github.com/go-gl/gl/v4.5-core/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
+	"github.com/rmc-coma/golang-3d/raycasting"
+	"golang.org/x/image/math/f64"
 )
 
-const (
-	windowWidth  = 960
-	windowHeight = 540
-)
+func renderTriangle() {
+	const (
+		windowWidth  = 960
+		windowHeight = 540
+	)
 
-func main() {
 	runtime.LockOSThread()
 	if err := glfw.Init(); err != nil {
 		panic(fmt.Errorf("could not initialize glfw: %v", err))
@@ -118,4 +120,9 @@ func main() {
 	}
 
 	win.Destroy()
+}
+
+func main() {
+	var vec f64.Vec3 = raycasting.PolarCoordinatesToDirectionVector(45.0, 45.0)
+	fmt.Printf("%f $f $f\n", vec[0], vec[1], vec[2])
 }
