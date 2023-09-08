@@ -6,8 +6,7 @@ import (
 
 	"github.com/go-gl/gl/v4.5-core/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
-	"github.com/rmc-coma/golang-3d/raycasting"
-	"golang.org/x/image/math/f64"
+	"golang.org/x/image/math/f32"
 )
 
 func renderTriangle() {
@@ -123,6 +122,6 @@ func renderTriangle() {
 }
 
 func main() {
-	var vec f64.Vec3 = raycasting.PolarCoordinatesToDirectionVector(45.0, 45.0)
-	fmt.Printf("%f $f $f\n", vec[0], vec[1], vec[2])
+	var vec f32.Vec3 = PolarCoordinatesToDirectionVector(3.14159265359 / 4.0, 3.14159265359 / 4.0)
+	fmt.Println(vec[0], vec[1], vec[2])
 }
